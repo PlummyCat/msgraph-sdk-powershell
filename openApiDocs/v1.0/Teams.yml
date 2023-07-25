@@ -1967,11 +1967,11 @@ paths:
     post:
       tags:
         - chats.chatMessage
-      summary: Send chatMessage in a channel or a chat
-      description: Send a new chatMessage in the specified channel or a chat.
+      summary: Send message in a chat
+      description: Send a new chatMessage in the specified chat. This API can't create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can create a chat message.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/chat-post-messages?view=graph-rest-1.0
       operationId: chat_CreateMessage
       parameters:
         - name: chat-id
@@ -2778,11 +2778,11 @@ paths:
     post:
       tags:
         - chats.chatMessage
-      summary: Send replies to a message in a channel
-      description: Send a new reply to a chatMessage in a specified channel.
+      summary: Reply to a message in a channel
+      description: Create a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
       operationId: chat.message_CreateReply
       parameters:
         - name: chat-id
@@ -5873,11 +5873,11 @@ paths:
     post:
       tags:
         - groups.team
-      summary: Add member to channel
-      description: Add a conversationMember to a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
+      summary: Add conversationMember
+      description: Add a conversationMember to a channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0
       operationId: group.team.channel_CreateMember
       parameters:
         - name: group-id
@@ -5988,11 +5988,11 @@ paths:
     patch:
       tags:
         - groups.team
-      summary: Update conversationMember
-      description: Update the role of a conversationMember in a team or channel.
+      summary: Update member in channel
+      description: Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0
       operationId: group.team.channel_UpdateMember
       parameters:
         - name: group-id
@@ -6263,11 +6263,11 @@ paths:
     post:
       tags:
         - groups.team
-      summary: Send chatMessage in a channel or a chat
-      description: Send a new chatMessage in the specified channel or a chat.
+      summary: Send chatMessage in channel
+      description: Send a new chatMessage in the specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0
       operationId: group.team.channel_CreateMessage
       parameters:
         - name: group-id
@@ -7116,11 +7116,11 @@ paths:
     post:
       tags:
         - groups.team
-      summary: Send replies to a message in a channel
-      description: Send a new reply to a chatMessage in a specified channel.
+      summary: Reply to a message in a channel
+      description: Create a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
       operationId: group.team.channel.message_CreateReply
       parameters:
         - name: group-id
@@ -10480,32 +10480,6 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
-    delete:
-      tags:
-        - groups.team
-      summary: Delete navigation property photo for groups
-      operationId: group.team_DeletePhoto
-      parameters:
-        - name: group-id
-          in: path
-          description: The unique identifier of group
-          required: true
-          style: simple
-          schema:
-            type: string
-          x-ms-docs-key-type: group
-        - name: If-Match
-          in: header
-          description: ETag
-          style: simple
-          schema:
-            type: string
-      responses:
-        2XX:
-          description: Success
-        default:
-          $ref: '#/components/responses/error'
-      x-ms-docs-operation-type: operation
   '/groups/{group-id}/team/photo/$value':
     get:
       tags:
@@ -10942,11 +10916,11 @@ paths:
     post:
       tags:
         - groups.team
-      summary: Add member to channel
-      description: Add a conversationMember to a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
+      summary: Add conversationMember
+      description: Add a conversationMember to a channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0
       operationId: group.team.primaryChannel_CreateMember
       parameters:
         - name: group-id
@@ -11041,11 +11015,11 @@ paths:
     patch:
       tags:
         - groups.team
-      summary: Update conversationMember
-      description: Update the role of a conversationMember in a team or channel.
+      summary: Update member in channel
+      description: Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0
       operationId: group.team.primaryChannel_UpdateMember
       parameters:
         - name: group-id
@@ -11284,11 +11258,11 @@ paths:
     post:
       tags:
         - groups.team
-      summary: Send chatMessage in a channel or a chat
-      description: Send a new chatMessage in the specified channel or a chat.
+      summary: Send chatMessage in channel
+      description: Send a new chatMessage in the specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0
       operationId: group.team.primaryChannel_CreateMessage
       parameters:
         - name: group-id
@@ -12033,11 +12007,11 @@ paths:
     post:
       tags:
         - groups.team
-      summary: Send replies to a message in a channel
-      description: Send a new reply to a chatMessage in a specified channel.
+      summary: Reply to a message in a channel
+      description: Create a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
       operationId: group.team.primaryChannel.message_CreateReply
       parameters:
         - name: group-id
@@ -18207,11 +18181,11 @@ paths:
     post:
       tags:
         - teams.channel
-      summary: Add member to channel
-      description: Add a conversationMember to a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
+      summary: Add conversationMember
+      description: Add a conversationMember to a channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0
       operationId: team.channel_CreateMember
       parameters:
         - name: team-id
@@ -18322,11 +18296,11 @@ paths:
     patch:
       tags:
         - teams.channel
-      summary: Update conversationMember
-      description: Update the role of a conversationMember in a team or channel.
+      summary: Update member in channel
+      description: Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0
       operationId: team.channel_UpdateMember
       parameters:
         - name: team-id
@@ -18661,11 +18635,11 @@ paths:
     post:
       tags:
         - teams.channel
-      summary: Send chatMessage in a channel or a chat
-      description: Send a new chatMessage in the specified channel or a chat.
+      summary: Send chatMessage in channel
+      description: Send a new chatMessage in the specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0
       operationId: team.channel_CreateMessage
       parameters:
         - name: team-id
@@ -19596,11 +19570,11 @@ paths:
     post:
       tags:
         - teams.channel
-      summary: Send replies to a message in a channel
-      description: Send a new reply to a chatMessage in a specified channel.
+      summary: Reply to a message in a channel
+      description: Create a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
       operationId: team.channel.message_CreateReply
       parameters:
         - name: team-id
@@ -23965,32 +23939,6 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
-    delete:
-      tags:
-        - teams.profilePhoto
-      summary: Delete navigation property photo for teams
-      operationId: team_DeletePhoto
-      parameters:
-        - name: team-id
-          in: path
-          description: The unique identifier of team
-          required: true
-          style: simple
-          schema:
-            type: string
-          x-ms-docs-key-type: team
-        - name: If-Match
-          in: header
-          description: ETag
-          style: simple
-          schema:
-            type: string
-      responses:
-        2XX:
-          description: Success
-        default:
-          $ref: '#/components/responses/error'
-      x-ms-docs-operation-type: operation
   '/teams/{team-id}/photo/$value':
     get:
       tags:
@@ -24427,11 +24375,11 @@ paths:
     post:
       tags:
         - teams.channel
-      summary: Add member to channel
-      description: Add a conversationMember to a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
+      summary: Add conversationMember
+      description: Add a conversationMember to a channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0
       operationId: team.primaryChannel_CreateMember
       parameters:
         - name: team-id
@@ -24526,11 +24474,11 @@ paths:
     patch:
       tags:
         - teams.channel
-      summary: Update conversationMember
-      description: Update the role of a conversationMember in a team or channel.
+      summary: Update member in channel
+      description: Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0
       operationId: team.primaryChannel_UpdateMember
       parameters:
         - name: team-id
@@ -24825,11 +24773,11 @@ paths:
     post:
       tags:
         - teams.channel
-      summary: Send chatMessage in a channel or a chat
-      description: Send a new chatMessage in the specified channel or a chat.
+      summary: Send chatMessage in channel
+      description: Send a new chatMessage in the specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0
       operationId: team.primaryChannel_CreateMessage
       parameters:
         - name: team-id
@@ -25640,11 +25588,11 @@ paths:
     post:
       tags:
         - teams.channel
-      summary: Send replies to a message in a channel
-      description: Send a new reply to a chatMessage in a specified channel.
+      summary: Reply to a message in a channel
+      description: Create a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
       operationId: team.primaryChannel.message_CreateReply
       parameters:
         - name: team-id
@@ -31443,6 +31391,7 @@ paths:
                 - id
                 - workforceIntegrations
                 - deletedTeams
+                - teamsAppSettings
               type: string
         - name: $expand
           in: query
@@ -31457,6 +31406,7 @@ paths:
                 - '*'
                 - workforceIntegrations
                 - deletedTeams
+                - teamsAppSettings
               type: string
       responses:
         2XX:
@@ -32249,11 +32199,11 @@ paths:
     post:
       tags:
         - teamwork.deletedTeam
-      summary: Add member to channel
-      description: Add a conversationMember to a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
+      summary: Add conversationMember
+      description: Add a conversationMember to a channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0
       operationId: teamwork.deletedTeam.channel_CreateMember
       parameters:
         - name: deletedTeam-id
@@ -32364,11 +32314,11 @@ paths:
     patch:
       tags:
         - teamwork.deletedTeam
-      summary: Update conversationMember
-      description: Update the role of a conversationMember in a team or channel.
+      summary: Update member in channel
+      description: Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0
       operationId: teamwork.deletedTeam.channel_UpdateMember
       parameters:
         - name: deletedTeam-id
@@ -32703,11 +32653,11 @@ paths:
     post:
       tags:
         - teamwork.deletedTeam
-      summary: Send chatMessage in a channel or a chat
-      description: Send a new chatMessage in the specified channel or a chat.
+      summary: Send chatMessage in channel
+      description: Send a new chatMessage in the specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0
       operationId: teamwork.deletedTeam.channel_CreateMessage
       parameters:
         - name: deletedTeam-id
@@ -33638,11 +33588,11 @@ paths:
     post:
       tags:
         - teamwork.deletedTeam
-      summary: Send replies to a message in a channel
-      description: Send a new reply to a chatMessage in a specified channel.
+      summary: Reply to a message in a channel
+      description: Create a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
       operationId: teamwork.deletedTeam.channel.message_CreateReply
       parameters:
         - name: deletedTeam-id
@@ -36471,6 +36421,88 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: action
+  /teamwork/teamsAppSettings:
+    get:
+      tags:
+        - teamwork.teamsAppSettings
+      summary: Get teamsAppSettings from teamwork
+      operationId: teamwork_GetTeamsAppSetting
+      parameters:
+        - name: $select
+          in: query
+          description: Select properties to be returned
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - id
+                - allowUserRequestsForAppAccess
+              type: string
+        - name: $expand
+          in: query
+          description: Expand related entities
+          style: form
+          explode: false
+          schema:
+            uniqueItems: true
+            type: array
+            items:
+              enum:
+                - '*'
+              type: string
+      responses:
+        2XX:
+          description: Retrieved navigation property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.teamsAppSettings'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    patch:
+      tags:
+        - teamwork.teamsAppSettings
+      summary: Update the navigation property teamsAppSettings in teamwork
+      operationId: teamwork_UpdateTeamsAppSetting
+      requestBody:
+        description: New navigation property values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/microsoft.graph.teamsAppSettings'
+        required: true
+      responses:
+        2XX:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/microsoft.graph.teamsAppSettings'
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
+    delete:
+      tags:
+        - teamwork.teamsAppSettings
+      summary: Delete navigation property teamsAppSettings for teamwork
+      operationId: teamwork_DeleteTeamsAppSetting
+      parameters:
+        - name: If-Match
+          in: header
+          description: ETag
+          style: simple
+          schema:
+            type: string
+      responses:
+        2XX:
+          description: Success
+        default:
+          $ref: '#/components/responses/error'
+      x-ms-docs-operation-type: operation
   /teamwork/workforceIntegrations:
     get:
       tags:
@@ -38104,11 +38136,11 @@ paths:
     post:
       tags:
         - users.chat
-      summary: Send chatMessage in a channel or a chat
-      description: Send a new chatMessage in the specified channel or a chat.
+      summary: Send message in a chat
+      description: Send a new chatMessage in the specified chat. This API can't create a new chat; you must use the list chats method to retrieve the ID of an existing chat before you can create a chat message.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/chat-post-messages?view=graph-rest-1.0
       operationId: user.chat_CreateMessage
       parameters:
         - name: user-id
@@ -38953,11 +38985,11 @@ paths:
     post:
       tags:
         - users.chat
-      summary: Send replies to a message in a channel
-      description: Send a new reply to a chatMessage in a specified channel.
+      summary: Reply to a message in a channel
+      description: Create a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
       operationId: user.chat.message_CreateReply
       parameters:
         - name: user-id
@@ -41858,11 +41890,11 @@ paths:
     post:
       tags:
         - users.team
-      summary: Add member to channel
-      description: Add a conversationMember to a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
+      summary: Add conversationMember
+      description: Add a conversationMember to a channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0
       operationId: user.joinedTeam.channel_CreateMember
       parameters:
         - name: user-id
@@ -41989,11 +42021,11 @@ paths:
     patch:
       tags:
         - users.team
-      summary: Update conversationMember
-      description: Update the role of a conversationMember in a team or channel.
+      summary: Update member in channel
+      description: Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0
       operationId: user.joinedTeam.channel_UpdateMember
       parameters:
         - name: user-id
@@ -42296,11 +42328,11 @@ paths:
     post:
       tags:
         - users.team
-      summary: Send chatMessage in a channel or a chat
-      description: Send a new chatMessage in the specified channel or a chat.
+      summary: Send chatMessage in channel
+      description: Send a new chatMessage in the specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0
       operationId: user.joinedTeam.channel_CreateMessage
       parameters:
         - name: user-id
@@ -43253,11 +43285,11 @@ paths:
     post:
       tags:
         - users.team
-      summary: Send replies to a message in a channel
-      description: Send a new reply to a chatMessage in a specified channel.
+      summary: Reply to a message in a channel
+      description: Create a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
       operationId: user.joinedTeam.channel.message_CreateReply
       parameters:
         - name: user-id
@@ -47089,40 +47121,6 @@ paths:
         default:
           $ref: '#/components/responses/error'
       x-ms-docs-operation-type: operation
-    delete:
-      tags:
-        - users.team
-      summary: Delete navigation property photo for users
-      operationId: user.joinedTeam_DeletePhoto
-      parameters:
-        - name: user-id
-          in: path
-          description: The unique identifier of user
-          required: true
-          style: simple
-          schema:
-            type: string
-          x-ms-docs-key-type: user
-        - name: team-id
-          in: path
-          description: The unique identifier of team
-          required: true
-          style: simple
-          schema:
-            type: string
-          x-ms-docs-key-type: team
-        - name: If-Match
-          in: header
-          description: ETag
-          style: simple
-          schema:
-            type: string
-      responses:
-        2XX:
-          description: Success
-        default:
-          $ref: '#/components/responses/error'
-      x-ms-docs-operation-type: operation
   '/users/{user-id}/joinedTeams/{team-id}/photo/$value':
     get:
       tags:
@@ -47631,11 +47629,11 @@ paths:
     post:
       tags:
         - users.team
-      summary: Add member to channel
-      description: Add a conversationMember to a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
+      summary: Add conversationMember
+      description: Add a conversationMember to a channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0
       operationId: user.joinedTeam.primaryChannel_CreateMember
       parameters:
         - name: user-id
@@ -47746,11 +47744,11 @@ paths:
     patch:
       tags:
         - users.team
-      summary: Update conversationMember
-      description: Update the role of a conversationMember in a team or channel.
+      summary: Update member in channel
+      description: Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0
       operationId: user.joinedTeam.primaryChannel_UpdateMember
       parameters:
         - name: user-id
@@ -48021,11 +48019,11 @@ paths:
     post:
       tags:
         - users.team
-      summary: Send chatMessage in a channel or a chat
-      description: Send a new chatMessage in the specified channel or a chat.
+      summary: Send chatMessage in channel
+      description: Send a new chatMessage in the specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0
       operationId: user.joinedTeam.primaryChannel_CreateMessage
       parameters:
         - name: user-id
@@ -48874,11 +48872,11 @@ paths:
     post:
       tags:
         - users.team
-      summary: Send replies to a message in a channel
-      description: Send a new reply to a chatMessage in a specified channel.
+      summary: Reply to a message in a channel
+      description: Create a new reply to a chatMessage in a specified channel.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0
       operationId: user.joinedTeam.primaryChannel.message_CreateReply
       parameters:
         - name: user-id
@@ -57210,6 +57208,8 @@ components:
                 $ref: '#/components/schemas/microsoft.graph.deletedTeam'
               description: The deleted team.
               x-ms-navigationProperty: true
+            teamsAppSettings:
+              $ref: '#/components/schemas/microsoft.graph.teamsAppSettings'
           additionalProperties:
             type: object
     microsoft.graph.deletedTeam:
@@ -57224,6 +57224,17 @@ components:
                 $ref: '#/components/schemas/microsoft.graph.channel'
               description: The channels that are either shared with this deleted team or created in this deleted team.
               x-ms-navigationProperty: true
+          additionalProperties:
+            type: object
+    microsoft.graph.teamsAppSettings:
+      allOf:
+        - $ref: '#/components/schemas/microsoft.graph.entity'
+        - title: teamsAppSettings
+          type: object
+          properties:
+            allowUserRequestsForAppAccess:
+              type: boolean
+              nullable: true
           additionalProperties:
             type: object
     microsoft.graph.workforceIntegration:
