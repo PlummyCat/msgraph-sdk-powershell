@@ -5614,7 +5614,7 @@ paths:
       tags:
         - security.Actions
       summary: Invoke action export
-      description: 'Initiate an export from a microsoft.graph.security.ediscoveryReviewSetQuery. For details, see Export documents from a review set in eDiscovery (Premium).'
+      description: 'Initiate an export from a ediscoveryReviewSetQuery. For details, see Export documents from a review set in eDiscovery (Premium).'
       externalDocs:
         description: Find more info here
         url: https://docs.microsoft.com/graph/api/security-ediscoveryreviewsetquery-export?view=graph-rest-1.0

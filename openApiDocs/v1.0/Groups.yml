@@ -5028,10 +5028,10 @@ paths:
       tags:
         - groups.conversation
       summary: Get conversation
-      description: The group's conversations.
+      description: Retrieve the properties and relationships of conversation object.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/group-get-conversation?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversation-get?view=graph-rest-1.0
       operationId: group_GetConversation
       parameters:
         - name: group-id
@@ -5432,10 +5432,10 @@ paths:
       tags:
         - groups.Actions
       summary: Invoke action reply
-      description: "Add an attachment when creating a group post. This operation limits the size of the attachment you can add to under 3 MB. An attachment can be one of the following types: All these types of attachment resources are derived from the attachment\nresource. "
+      description: "Reply to a thread in a group conversation and add a new post to it. You can specify the parent conversation \nin the request, or, you can specify just the thread without the parent conversation."
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/post-post-attachments?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationthread-reply?view=graph-rest-1.0
       operationId: group.conversation.thread_reply
       parameters:
         - name: group-id
@@ -7509,10 +7509,10 @@ paths:
       tags:
         - groups.Actions
       summary: Invoke action reply
-      description: 'Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. See known limitations of open extensions for more information. The table in the Permissions section lists the resources that support open extensions.'
+      description: 'Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.'
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/post-reply?view=graph-rest-1.0
       operationId: group.conversation.thread.post.inReplyTo_reply
       parameters:
         - name: group-id
@@ -7636,10 +7636,10 @@ paths:
       tags:
         - groups.Actions
       summary: Invoke action reply
-      description: 'Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. See known limitations of open extensions for more information. The table in the Permissions section lists the resources that support open extensions.'
+      description: 'Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.'
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/post-reply?view=graph-rest-1.0
       operationId: group.conversation.thread.post_reply
       parameters:
         - name: group-id
@@ -29354,11 +29354,11 @@ paths:
     delete:
       tags:
         - groups.conversationThread
-      summary: Delete conversation thread
+      summary: Delete conversationThread
       description: Delete conversationThread.
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/group-delete-thread?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationthread-delete?view=graph-rest-1.0
       operationId: group_DeleteThread
       parameters:
         - name: group-id
@@ -29394,10 +29394,10 @@ paths:
       tags:
         - groups.Actions
       summary: Invoke action reply
-      description: "Add an attachment when creating a group post. This operation limits the size of the attachment you can add to under 3 MB. An attachment can be one of the following types: All these types of attachment resources are derived from the attachment\nresource. "
+      description: "Reply to a thread in a group conversation and add a new post to it. You can specify the parent conversation \nin the request, or, you can specify just the thread without the parent conversation."
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/post-post-attachments?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/conversationthread-reply?view=graph-rest-1.0
       operationId: group.thread_reply
       parameters:
         - name: group-id
@@ -31239,10 +31239,10 @@ paths:
       tags:
         - groups.Actions
       summary: Invoke action reply
-      description: 'Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. See known limitations of open extensions for more information. The table in the Permissions section lists the resources that support open extensions.'
+      description: 'Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.'
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/post-reply?view=graph-rest-1.0
       operationId: group.thread.post.inReplyTo_reply
       parameters:
         - name: group-id
@@ -31350,10 +31350,10 @@ paths:
       tags:
         - groups.Actions
       summary: Invoke action reply
-      description: 'Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. See known limitations of open extensions for more information. The table in the Permissions section lists the resources that support open extensions.'
+      description: 'Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.'
       externalDocs:
         description: Find more info here
-        url: https://docs.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0
+        url: https://docs.microsoft.com/graph/api/post-reply?view=graph-rest-1.0
       operationId: group.thread.post_reply
       parameters:
         - name: group-id
@@ -39308,7 +39308,7 @@ components:
           maximum: 2147483647
           minimum: -2147483648
           type: integer
-          description: 'Specifies the access token version expected by this resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure requestedAccessTokenVersion to indicate the supported access token format.  Possible values for requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as AzureADandPersonalMicrosoftAccount, the value for this property must be 2'
+          description: 'Specifies the access token version expected by this resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure requestedAccessTokenVersion to indicate the supported access token format.  Possible values for requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as AzureADandPersonalMicrosoftAccount or PersonalMicrosoftAccount, the value for this property must be 2.'
           format: int32
           nullable: true
       additionalProperties:
